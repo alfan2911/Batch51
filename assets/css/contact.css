@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(#0F0F0F, #232D3F);
+}
+
+nav {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 9vh;
+    width: 100vw;
+    margin-top: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    margin-left: 40px;
+    text-decoration: none;
+    
+}
+
+nav ul li {
+    margin-right: 25px;
+    font-size: 20px;
+    /* width: 100%; */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #b1b6b5;
+}
+
+nav ul li img {
+    width: 50px;
+}
+
+nav ul li .active {
+    font-weight: bold;
+}
+
+
+.navbar-left {
+    flex: 70%;
+}
+
+.navbar-left a:hover {
+    color: #008170;
+    
+}
+
+.navbar-right {
+    flex: 30%;
+    text-align: end;
+    margin-right: 50px;
+}
+
+.navbar-right a {
+    background-color: #008170;
+    color: white;
+    border-radius: 8px;
+    padding: 7px;
+    text-decoration: none;
+    border: none;
+}
+
+.navbar-right a:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+
+form {
+    width: 350px;
+    margin: 50px auto;
+    padding: 10px;
+}
+
+form div {
+    margin-top: 15px;
+}
+
+form h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+    color: #b1b6b5;
+}
+
+label {
+    font-weight: bold;
+    color: #b1b6b5;
+}
+
+input, select, textarea {
+    background-color: #005B41;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #0F0F0F;
+    resize: none;
+    color: #b1b6b5;
+}
+
+button {
+    background-color: #0F0F0F;
+    color: white;
+    padding: 6px 25px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+}
