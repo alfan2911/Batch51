@@ -19,10 +19,10 @@ function addProject(event) {
   }
   if (nodeJs.checked == true) {
     renderIcon += '<i id="node" class="fa-brands fa-node-js fa-xl"></i>';
-  } 
+  }
   if (react.checked == true) {
     renderIcon += '<i id="react" class="fa-brands fa-react fa-xl"></i>';
-  } 
+  }
   if (vue.checked == true) {
     renderIcon += '<i id="vue" class="fa-brands fa-vuejs fa-xl"></i>';
   }
@@ -65,7 +65,10 @@ function displayProject() {
                 <h3>${projects[i].projectName}</h3>
             </div>    
             <div class="card-drt">
-                <p>Duration:</p>
+                <p>${countDuration(
+                  projects[i].endDate,
+                  projects[i].startDate
+                )}</p>
             </div>
             <div class="card-desc">
                 <p>${projects[i].description}</p>
@@ -85,4 +88,32 @@ function displayProject() {
     </div>
         `;
   }
+}
+
+function countDuration(endDate, startDate) {
+  let startDay = new Date(startDate);
+  let endDay = new Date(endDate);
+  let dayDuration = Math.abs(endDay - startDay);
+  let day = Math.ceil(dayDuration / (1000 * 60 * 60 * 24));
+  let startMonth = new Date(startDate);
+  let  endMonth = new Date(endDate);
+  let monthDuration = Math.abs(endMonth - startMonth);
+  let month = Math.floor(monthDuration / (1000 * 60 * 60 * 24 * 30))
+  let startYear = new Date(startDate);
+  let endYear = new Date(endDate);
+  let yearDuration = Math.abs(endYear - startYear);
+  let year = Math.ceil(yearDuration / (1000 * 60 * 60 * 24 * 30 * 12))
+  
+
+  if (day < 30) {
+    return `Duration ${day} day`
+  }  else if (day >= 30) {
+    return `Duration ${month} month`
+  } else if (month >= 12) {
+    return `Duration ${year} year`
+  } 
+
+  console.log(year)
+
+  
 }
