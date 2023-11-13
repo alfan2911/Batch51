@@ -49,43 +49,39 @@ function addProject(event) {
 function displayProject() {
   //   let projectContainer = document.getElementById("project-list");
 
-  document.getElementById("project-list").innerHTML = "";
+  document.getElementById("blog-content").innerHTML = "";
 
   //   let lengthProject = projects.length;
 
   for (i = 0; i < projects.length; i++) {
     // console.log(projects);
-    document.getElementById("project-list").innerHTML += `
-        <div class="project-list-item">
-        <a href="projectDetail.html">
-            <div class="card-img">
-                <img src="${projects[i].image}" alt="">
-            </div>                    
-            <div class="card-title">
-                <h3>${projects[i].projectName}</h3>
-            </div>    
-            <div class="card-drt">
-                <p>${countDuration(
-                  projects[i].endDate,
-                  projects[i].startDate
-                )}</p>
-            </div>
-            <div class="card-desc">
-                <p>${projects[i].description}</p>
-            </div>
-            <div class="card-icon">
-                ${projects[i].renderIcon}        
-            </div>
-        </a>
-        <div class="card-btn">
-            <div class="edit-btn">
-                <button>Edit</button>
-            </div>
-            <div class="del-btn">
-                <button>Delete</button>
-            </div>
-        </div>
+    document.getElementById("blog-content").innerHTML += `
+    <div class="blog-list-item">
+    <div class="blog-image-container">
+        <img class="blog-image" src="${projects[i].image}">
     </div>
+    <a href="projectDetail.html">
+        <h3 class="blog-title">${projects[i].projectName}</h3>
+    </a>
+    <p class="blog-duration">${countDuration(
+      projects[i].endDate,
+      projects[i].startDate
+    )}</p>
+    <div class="blog-content">
+        <p id="blog-content">
+        ${projects[i].description}
+        </p>
+    </div>
+    <div class="blog-icon-technology">
+    ${projects[i].renderIcon} 
+    </div>
+    <div class="blog-button">
+        <button>edit</button>
+        <button>delete</button>
+    </div>
+</div>
+</div>
+</div>
         `;
   }
 }
