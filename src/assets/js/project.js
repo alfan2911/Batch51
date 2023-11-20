@@ -49,39 +49,32 @@ function addProject(event) {
 function displayProject() {
   //   let projectContainer = document.getElementById("project-list");
 
-  document.getElementById("blog-content").innerHTML = "";
+  document.getElementById("project-list").innerHTML = "";
 
   //   let lengthProject = projects.length;
 
   for (i = 0; i < projects.length; i++) {
     // console.log(projects);
-    document.getElementById("blog-content").innerHTML += `
-    <div class="blog-list-item">
-    <div class="blog-image-container">
-        <img class="blog-image" src="${projects[i].image}">
+    document.getElementById("project-list").innerHTML += `
+    <div class="card shadow border border-black" style="width: 18rem;">
+    <img src="${projects[i].image}" class="card-img-top" alt="..." style="width: 90%; margin: 8px auto;">
+    <div class="card-body">
+      <h5 class="card-title">${projects[i].projectName}</h5>
+      <p>${countDuration(
+        projects[i].endDate,
+        projects[i].startDate
+      )}</p>
+      <p class="card-text">${projects[i].description}</p>
+      <div class="d-flex gap-3 my-5">
+      ${projects[i].renderIcon}
+      </div>
+      <div class="d-flex gap-5 justify-content-center" style=" margin-bottom: 0px;">
+        <a href="#" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Edit</a>
+        <a href="#" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 80px; height: 30px;">Delete</a>
+      </div>
+      
     </div>
-    <a href="projectDetail.html">
-        <h3 class="blog-title">${projects[i].projectName}</h3>
-    </a>
-    <p class="blog-duration">${countDuration(
-      projects[i].endDate,
-      projects[i].startDate
-    )}</p>
-    <div class="blog-content">
-        <p id="blog-content">
-        ${projects[i].description}
-        </p>
-    </div>
-    <div class="blog-icon-technology">
-    ${projects[i].renderIcon} 
-    </div>
-    <div class="blog-button">
-        <button>edit</button>
-        <button>delete</button>
-    </div>
-</div>
-</div>
-</div>
+  </div>
         `;
   }
 }
@@ -92,24 +85,21 @@ function countDuration(endDate, startDate) {
   let dayDuration = Math.abs(endDay - startDay);
   let day = Math.ceil(dayDuration / (1000 * 60 * 60 * 24));
   let startMonth = new Date(startDate);
-  let  endMonth = new Date(endDate);
+  let endMonth = new Date(endDate);
   let monthDuration = Math.abs(endMonth - startMonth);
-  let month = Math.floor(monthDuration / (1000 * 60 * 60 * 24 * 30))
+  let month = Math.floor(monthDuration / (1000 * 60 * 60 * 24 * 30));
   let startYear = new Date(startDate);
   let endYear = new Date(endDate);
   let yearDuration = Math.abs(endYear - startYear);
-  let year = Math.ceil(yearDuration / (1000 * 60 * 60 * 24 * 30 * 12))
-  
+  let year = Math.ceil(yearDuration / (1000 * 60 * 60 * 24 * 30 * 12));
 
   if (day < 30) {
-    return `Duration ${day} day`
-  }  else if (day >= 30) {
-    return `Duration ${month} month`
+    return `Duration ${day} day`;
+  } else if (day >= 30) {
+    return `Duration ${month} month`;
   } else if (month >= 12) {
-    return `Duration ${year} year`
-  } 
+    return `Duration ${year} year`;
+  }
 
-  console.log(year)
-
-  
+  console.log(year);
 }
